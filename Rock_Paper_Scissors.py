@@ -105,7 +105,7 @@ def main():
               "Player's comment: 'The Dude abides.'\n"
               "Computer's comment: 'I'll be back.'\n")
     restart = input("Enter 'r' if you'd like to restart or "
-                    "any other key close the program.\n").strip()
+                    "any other key to close the program.\n").strip()
     if restart != 'r':
         sys.exit()
     else:
