@@ -1,11 +1,14 @@
 import random
 import sys
 
+# Player's and computer's game choices are declared in lists
 player_1_list = ["Rock", "Paper", "Scissors"]
 computer_list = ["Rock", "Paper", "Scissors"]
 
 
 def intro():
+    """Print starting message. """
+
     print("Welcome to this game of Rock, Paper, Scissors!\n\n"
           "You will be playing a match consisting of four rounds "
           "against the machine. You can play as many matches as you like.\n"
@@ -13,6 +16,11 @@ def intro():
 
 
 def outro():
+    """
+
+    Execute closing scene if player doesn't
+    want to play.
+    """
     print("\n'Then why you wasting my time? Get the hell outta here!!!'\n\n"
           "Suddenly, you are grabbed by two heavily-armed guards who "
           "knock you out and take you away. When you wake up, you "
@@ -24,6 +32,8 @@ def outro():
 
 
 def get_player_choice():
+    """Get player input. """
+
     player_choice = input().strip()
     player_choice = player_choice.lower().capitalize()
     player_choice = player_1_list[player_1_list.index(player_choice)]
@@ -31,12 +41,27 @@ def get_player_choice():
 
 
 def get_computer_choice():
+    """Pick a random computer choice. """
+
     computer_choice = random.choice(computer_list)
     return computer_choice
 
 
 def score(player_choice, computer_choice,
           player_win_counter, computer_win_counter):
+    """
+
+    Determine match score.
+
+    Args:
+        (str) player_choice - 'Rock', 'Paper' or 'Scissors'
+        (str) computer_chouce - 'Rock', 'Paper' or 'Scissors'
+        (num) player_win_counter - n of matches won
+        (num) computer_win_counter - n of matches won
+
+    Returns:
+        list - list containing n of wins for player and computer
+    """
     outcome = ""
     if player_choice == computer_choice:
         outcome = "IT'S A TIE"
@@ -60,6 +85,17 @@ def score(player_choice, computer_choice,
 
 
 def round(player_win_counter, computer_win_counter):
+    """
+
+    Execute a game round.
+
+    Args:
+        (num) player_win_counter - n of matches won
+        (num) computer_win_counter - n of matches won
+
+    Returns:
+        list - containing n of player's and computer's wins
+    """
     print("Rock Paper Scissors, go!\n"
           "You pick: ")
     player_choice = get_player_choice()
@@ -70,6 +106,8 @@ def round(player_win_counter, computer_win_counter):
 
 
 def main():
+    """Run game. """
+    
     player_win_counter = 0
     computer_win_counter = 0
     intro()
